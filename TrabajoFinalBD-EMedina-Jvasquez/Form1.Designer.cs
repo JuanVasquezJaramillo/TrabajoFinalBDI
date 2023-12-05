@@ -66,6 +66,7 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.lblTituloRAbogado = new System.Windows.Forms.Label();
             this.tpRTrabajo = new System.Windows.Forms.TabPage();
             this.pn2FormRTrabajo = new System.Windows.Forms.Panel();
+            this.rbFfDRTrabajo = new System.Windows.Forms.RadioButton();
             this.dtpFfRTrabajo = new System.Windows.Forms.DateTimePicker();
             this.dtpFiRTrabajo = new System.Windows.Forms.DateTimePicker();
             this.lblFechaFinalRTrabajo = new System.Windows.Forms.Label();
@@ -83,26 +84,25 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnTituloRTrabajo = new System.Windows.Forms.Panel();
             this.lblTituloRTrabajo = new System.Windows.Forms.Label();
             this.tpCTrabajo = new System.Windows.Forms.TabPage();
-            this.tpCAbogados = new System.Windows.Forms.TabPage();
-            this.rbFfDRTrabajo = new System.Windows.Forms.RadioButton();
-            this.pnIzqBAbogado = new System.Windows.Forms.Panel();
-            this.dgvDatosAbogado = new System.Windows.Forms.DataGridView();
+            this.lblNoHayResultados = new System.Windows.Forms.Label();
+            this.pnBottomBAbogado = new System.Windows.Forms.Panel();
             this.pnTopBAbogado = new System.Windows.Forms.Panel();
+            this.dtpFIBuscarAbogado = new System.Windows.Forms.DateTimePicker();
+            this.lblBuscarAbogado = new System.Windows.Forms.Label();
             this.lblTituloConsultarAbogado = new System.Windows.Forms.Label();
             this.btnBuscarAbogado = new System.Windows.Forms.Button();
+            this.dgvDatosAbogado = new System.Windows.Forms.DataGridView();
             this.pnDerBAbogado = new System.Windows.Forms.Panel();
-            this.pnBottomBAbogado = new System.Windows.Forms.Panel();
-            this.lblBuscarAbogado = new System.Windows.Forms.Label();
-            this.dtpFIBuscarAbogado = new System.Windows.Forms.DateTimePicker();
-            this.lblNoHayResultados = new System.Windows.Forms.Label();
-            this.pnTopCAbogados = new System.Windows.Forms.Panel();
-            this.lblTituloCAbogados = new System.Windows.Forms.Label();
-            this.pnIzqCAbogados = new System.Windows.Forms.Panel();
-            this.pnDerCAbogados = new System.Windows.Forms.Panel();
-            this.pnBottomCAbogados = new System.Windows.Forms.Panel();
-            this.btnMostrarCAbogados = new System.Windows.Forms.Button();
+            this.pnIzqBAbogado = new System.Windows.Forms.Panel();
+            this.tpCAbogados = new System.Windows.Forms.TabPage();
             this.pnResultadoCAbogados = new System.Windows.Forms.Panel();
             this.lblCantidadAbogados = new System.Windows.Forms.Label();
+            this.btnMostrarCAbogados = new System.Windows.Forms.Button();
+            this.pnBottomCAbogados = new System.Windows.Forms.Panel();
+            this.pnDerCAbogados = new System.Windows.Forms.Panel();
+            this.pnIzqCAbogados = new System.Windows.Forms.Panel();
+            this.pnTopCAbogados = new System.Windows.Forms.Panel();
+            this.lblTituloCAbogados = new System.Windows.Forms.Label();
             this.tbcUI.SuspendLayout();
             this.tpRConsorcio.SuspendLayout();
             this.pnBtnRConsorcio.SuspendLayout();
@@ -118,11 +118,11 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnBtnRTrabajo.SuspendLayout();
             this.pnTituloRTrabajo.SuspendLayout();
             this.tpCTrabajo.SuspendLayout();
-            this.tpCAbogados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosAbogado)).BeginInit();
             this.pnTopBAbogado.SuspendLayout();
-            this.pnTopCAbogados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosAbogado)).BeginInit();
+            this.tpCAbogados.SuspendLayout();
             this.pnResultadoCAbogados.SuspendLayout();
+            this.pnTopCAbogados.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcUI
@@ -328,7 +328,16 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             // 
             // cbCasosRAbogado
             // 
+            this.cbCasosRAbogado.BackColor = System.Drawing.SystemColors.Window;
+            this.cbCasosRAbogado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCasosRAbogado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCasosRAbogado.FormattingEnabled = true;
+            this.cbCasosRAbogado.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.cbCasosRAbogado.Items.AddRange(new object[] {
+            "0 a 3",
+            "4 a 10",
+            "11 a 20",
+            "más de 20"});
             this.cbCasosRAbogado.Location = new System.Drawing.Point(249, 204);
             this.cbCasosRAbogado.Name = "cbCasosRAbogado";
             this.cbCasosRAbogado.Size = new System.Drawing.Size(200, 21);
@@ -375,6 +384,7 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.rbPenalistaRAbogado.TabStop = true;
             this.rbPenalistaRAbogado.Text = "Penalista";
             this.rbPenalistaRAbogado.UseVisualStyleBackColor = true;
+            this.rbPenalistaRAbogado.CheckedChanged += new System.EventHandler(this.rbPenalistaRAbogado_CheckedChanged);
             // 
             // txtNombreRAbogado
             // 
@@ -447,6 +457,7 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             // 
             this.pnDerRAbogado.BackColor = System.Drawing.Color.DarkSlateGray;
             this.pnDerRAbogado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnDerRAbogado.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.pnDerRAbogado.Location = new System.Drawing.Point(669, 69);
             this.pnDerRAbogado.Name = "pnDerRAbogado";
             this.pnDerRAbogado.Size = new System.Drawing.Size(115, 278);
@@ -510,6 +521,18 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pn2FormRTrabajo.Name = "pn2FormRTrabajo";
             this.pn2FormRTrabajo.Size = new System.Drawing.Size(363, 269);
             this.pn2FormRTrabajo.TabIndex = 25;
+            // 
+            // rbFfDRTrabajo
+            // 
+            this.rbFfDRTrabajo.AutoSize = true;
+            this.rbFfDRTrabajo.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.rbFfDRTrabajo.Location = new System.Drawing.Point(10, 139);
+            this.rbFfDRTrabajo.Name = "rbFfDRTrabajo";
+            this.rbFfDRTrabajo.Size = new System.Drawing.Size(162, 17);
+            this.rbFfDRTrabajo.TabIndex = 24;
+            this.rbFfDRTrabajo.TabStop = true;
+            this.rbFfDRTrabajo.Text = "fecha de finalización definida";
+            this.rbFfDRTrabajo.UseVisualStyleBackColor = true;
             // 
             // dtpFfRTrabajo
             // 
@@ -687,50 +710,26 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.tpCTrabajo.TabIndex = 3;
             this.tpCTrabajo.Text = "Consultar Trabajo";
             // 
-            // tpCAbogados
+            // lblNoHayResultados
             // 
-            this.tpCAbogados.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.tpCAbogados.Controls.Add(this.pnResultadoCAbogados);
-            this.tpCAbogados.Controls.Add(this.btnMostrarCAbogados);
-            this.tpCAbogados.Controls.Add(this.pnBottomCAbogados);
-            this.tpCAbogados.Controls.Add(this.pnDerCAbogados);
-            this.tpCAbogados.Controls.Add(this.pnIzqCAbogados);
-            this.tpCAbogados.Controls.Add(this.pnTopCAbogados);
-            this.tpCAbogados.Location = new System.Drawing.Point(4, 22);
-            this.tpCAbogados.Name = "tpCAbogados";
-            this.tpCAbogados.Size = new System.Drawing.Size(808, 428);
-            this.tpCAbogados.TabIndex = 4;
-            this.tpCAbogados.Text = "Reporte Abogados";
+            this.lblNoHayResultados.AutoSize = true;
+            this.lblNoHayResultados.BackColor = System.Drawing.SystemColors.Control;
+            this.lblNoHayResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNoHayResultados.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblNoHayResultados.Location = new System.Drawing.Point(292, 221);
+            this.lblNoHayResultados.Name = "lblNoHayResultados";
+            this.lblNoHayResultados.Size = new System.Drawing.Size(249, 24);
+            this.lblNoHayResultados.TabIndex = 5;
+            this.lblNoHayResultados.Text = "NO HAY RESULTADOS...";
             // 
-            // rbFfDRTrabajo
+            // pnBottomBAbogado
             // 
-            this.rbFfDRTrabajo.AutoSize = true;
-            this.rbFfDRTrabajo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.rbFfDRTrabajo.Location = new System.Drawing.Point(10, 139);
-            this.rbFfDRTrabajo.Name = "rbFfDRTrabajo";
-            this.rbFfDRTrabajo.Size = new System.Drawing.Size(162, 17);
-            this.rbFfDRTrabajo.TabIndex = 24;
-            this.rbFfDRTrabajo.TabStop = true;
-            this.rbFfDRTrabajo.Text = "fecha de finalización definida";
-            this.rbFfDRTrabajo.UseVisualStyleBackColor = true;
-            // 
-            // pnIzqBAbogado
-            // 
-            this.pnIzqBAbogado.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pnIzqBAbogado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnIzqBAbogado.Location = new System.Drawing.Point(8, 168);
-            this.pnIzqBAbogado.Name = "pnIzqBAbogado";
-            this.pnIzqBAbogado.Size = new System.Drawing.Size(115, 176);
-            this.pnIzqBAbogado.TabIndex = 18;
-            // 
-            // dgvDatosAbogado
-            // 
-            this.dgvDatosAbogado.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvDatosAbogado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatosAbogado.Location = new System.Drawing.Point(129, 168);
-            this.dgvDatosAbogado.Name = "dgvDatosAbogado";
-            this.dgvDatosAbogado.Size = new System.Drawing.Size(534, 176);
-            this.dgvDatosAbogado.TabIndex = 20;
+            this.pnBottomBAbogado.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnBottomBAbogado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnBottomBAbogado.Location = new System.Drawing.Point(8, 350);
+            this.pnBottomBAbogado.Name = "pnBottomBAbogado";
+            this.pnBottomBAbogado.Size = new System.Drawing.Size(776, 66);
+            this.pnBottomBAbogado.TabIndex = 20;
             // 
             // pnTopBAbogado
             // 
@@ -743,6 +742,23 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnTopBAbogado.Name = "pnTopBAbogado";
             this.pnTopBAbogado.Size = new System.Drawing.Size(776, 159);
             this.pnTopBAbogado.TabIndex = 21;
+            // 
+            // dtpFIBuscarAbogado
+            // 
+            this.dtpFIBuscarAbogado.Location = new System.Drawing.Point(294, 83);
+            this.dtpFIBuscarAbogado.Name = "dtpFIBuscarAbogado";
+            this.dtpFIBuscarAbogado.Size = new System.Drawing.Size(226, 20);
+            this.dtpFIBuscarAbogado.TabIndex = 4;
+            // 
+            // lblBuscarAbogado
+            // 
+            this.lblBuscarAbogado.AutoSize = true;
+            this.lblBuscarAbogado.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lblBuscarAbogado.Location = new System.Drawing.Point(291, 54);
+            this.lblBuscarAbogado.Name = "lblBuscarAbogado";
+            this.lblBuscarAbogado.Size = new System.Drawing.Size(240, 26);
+            this.lblBuscarAbogado.TabIndex = 3;
+            this.lblBuscarAbogado.Text = "Buscar por medio de la fecha de inicio de trabajo:\r\n\r\n";
             // 
             // lblTituloConsultarAbogado
             // 
@@ -767,6 +783,15 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.btnBuscarAbogado.UseVisualStyleBackColor = false;
             this.btnBuscarAbogado.Click += new System.EventHandler(this.btnBuscarAbogado_Click);
             // 
+            // dgvDatosAbogado
+            // 
+            this.dgvDatosAbogado.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvDatosAbogado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatosAbogado.Location = new System.Drawing.Point(129, 168);
+            this.dgvDatosAbogado.Name = "dgvDatosAbogado";
+            this.dgvDatosAbogado.Size = new System.Drawing.Size(534, 176);
+            this.dgvDatosAbogado.TabIndex = 20;
+            // 
             // pnDerBAbogado
             // 
             this.pnDerBAbogado.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -776,103 +801,29 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnDerBAbogado.Size = new System.Drawing.Size(115, 176);
             this.pnDerBAbogado.TabIndex = 19;
             // 
-            // pnBottomBAbogado
+            // pnIzqBAbogado
             // 
-            this.pnBottomBAbogado.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pnBottomBAbogado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnBottomBAbogado.Location = new System.Drawing.Point(8, 350);
-            this.pnBottomBAbogado.Name = "pnBottomBAbogado";
-            this.pnBottomBAbogado.Size = new System.Drawing.Size(776, 66);
-            this.pnBottomBAbogado.TabIndex = 20;
+            this.pnIzqBAbogado.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnIzqBAbogado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnIzqBAbogado.Location = new System.Drawing.Point(8, 168);
+            this.pnIzqBAbogado.Name = "pnIzqBAbogado";
+            this.pnIzqBAbogado.Size = new System.Drawing.Size(115, 176);
+            this.pnIzqBAbogado.TabIndex = 18;
             // 
-            // lblBuscarAbogado
+            // tpCAbogados
             // 
-            this.lblBuscarAbogado.AutoSize = true;
-            this.lblBuscarAbogado.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblBuscarAbogado.Location = new System.Drawing.Point(291, 54);
-            this.lblBuscarAbogado.Name = "lblBuscarAbogado";
-            this.lblBuscarAbogado.Size = new System.Drawing.Size(240, 26);
-            this.lblBuscarAbogado.TabIndex = 3;
-            this.lblBuscarAbogado.Text = "Buscar por medio de la fecha de inicio de trabajo:\r\n\r\n";
-            // 
-            // dtpFIBuscarAbogado
-            // 
-            this.dtpFIBuscarAbogado.Location = new System.Drawing.Point(294, 83);
-            this.dtpFIBuscarAbogado.Name = "dtpFIBuscarAbogado";
-            this.dtpFIBuscarAbogado.Size = new System.Drawing.Size(226, 20);
-            this.dtpFIBuscarAbogado.TabIndex = 4;
-            // 
-            // lblNoHayResultados
-            // 
-            this.lblNoHayResultados.AutoSize = true;
-            this.lblNoHayResultados.BackColor = System.Drawing.SystemColors.Control;
-            this.lblNoHayResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoHayResultados.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNoHayResultados.Location = new System.Drawing.Point(292, 221);
-            this.lblNoHayResultados.Name = "lblNoHayResultados";
-            this.lblNoHayResultados.Size = new System.Drawing.Size(249, 24);
-            this.lblNoHayResultados.TabIndex = 5;
-            this.lblNoHayResultados.Text = "NO HAY RESULTADOS...";
-            // 
-            // pnTopCAbogados
-            // 
-            this.pnTopCAbogados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnTopCAbogados.Controls.Add(this.lblTituloCAbogados);
-            this.pnTopCAbogados.Location = new System.Drawing.Point(8, 3);
-            this.pnTopCAbogados.Name = "pnTopCAbogados";
-            this.pnTopCAbogados.Size = new System.Drawing.Size(776, 121);
-            this.pnTopCAbogados.TabIndex = 16;
-            // 
-            // lblTituloCAbogados
-            // 
-            this.lblTituloCAbogados.AutoSize = true;
-            this.lblTituloCAbogados.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.lblTituloCAbogados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloCAbogados.ForeColor = System.Drawing.Color.Transparent;
-            this.lblTituloCAbogados.Location = new System.Drawing.Point(229, 53);
-            this.lblTituloCAbogados.Name = "lblTituloCAbogados";
-            this.lblTituloCAbogados.Size = new System.Drawing.Size(349, 20);
-            this.lblTituloCAbogados.TabIndex = 12;
-            this.lblTituloCAbogados.Text = "CANTIDAD DE ABOGADOS PENALISTAS";
-            // 
-            // pnIzqCAbogados
-            // 
-            this.pnIzqCAbogados.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pnIzqCAbogados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnIzqCAbogados.Location = new System.Drawing.Point(8, 130);
-            this.pnIzqCAbogados.Name = "pnIzqCAbogados";
-            this.pnIzqCAbogados.Size = new System.Drawing.Size(310, 165);
-            this.pnIzqCAbogados.TabIndex = 17;
-            // 
-            // pnDerCAbogados
-            // 
-            this.pnDerCAbogados.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.pnDerCAbogados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnDerCAbogados.Location = new System.Drawing.Point(481, 130);
-            this.pnDerCAbogados.Name = "pnDerCAbogados";
-            this.pnDerCAbogados.Size = new System.Drawing.Size(303, 165);
-            this.pnDerCAbogados.TabIndex = 18;
-            // 
-            // pnBottomCAbogados
-            // 
-            this.pnBottomCAbogados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnBottomCAbogados.Location = new System.Drawing.Point(8, 301);
-            this.pnBottomCAbogados.Name = "pnBottomCAbogados";
-            this.pnBottomCAbogados.Size = new System.Drawing.Size(776, 106);
-            this.pnBottomCAbogados.TabIndex = 17;
-            // 
-            // btnMostrarCAbogados
-            // 
-            this.btnMostrarCAbogados.BackColor = System.Drawing.Color.Honeydew;
-            this.btnMostrarCAbogados.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMostrarCAbogados.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMostrarCAbogados.Location = new System.Drawing.Point(340, 142);
-            this.btnMostrarCAbogados.Name = "btnMostrarCAbogados";
-            this.btnMostrarCAbogados.Size = new System.Drawing.Size(121, 51);
-            this.btnMostrarCAbogados.TabIndex = 19;
-            this.btnMostrarCAbogados.Text = "MOSTRAR";
-            this.btnMostrarCAbogados.UseVisualStyleBackColor = false;
-            this.btnMostrarCAbogados.Click += new System.EventHandler(this.btnMostrarCAbogados_Click);
+            this.tpCAbogados.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.tpCAbogados.Controls.Add(this.pnResultadoCAbogados);
+            this.tpCAbogados.Controls.Add(this.btnMostrarCAbogados);
+            this.tpCAbogados.Controls.Add(this.pnBottomCAbogados);
+            this.tpCAbogados.Controls.Add(this.pnDerCAbogados);
+            this.tpCAbogados.Controls.Add(this.pnIzqCAbogados);
+            this.tpCAbogados.Controls.Add(this.pnTopCAbogados);
+            this.tpCAbogados.Location = new System.Drawing.Point(4, 22);
+            this.tpCAbogados.Name = "tpCAbogados";
+            this.tpCAbogados.Size = new System.Drawing.Size(808, 428);
+            this.tpCAbogados.TabIndex = 4;
+            this.tpCAbogados.Text = "Reporte Abogados";
             // 
             // pnResultadoCAbogados
             // 
@@ -895,6 +846,66 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.lblCantidadAbogados.Size = new System.Drawing.Size(25, 28);
             this.lblCantidadAbogados.TabIndex = 0;
             this.lblCantidadAbogados.Text = "a";
+            // 
+            // btnMostrarCAbogados
+            // 
+            this.btnMostrarCAbogados.BackColor = System.Drawing.Color.Honeydew;
+            this.btnMostrarCAbogados.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrarCAbogados.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarCAbogados.Location = new System.Drawing.Point(340, 142);
+            this.btnMostrarCAbogados.Name = "btnMostrarCAbogados";
+            this.btnMostrarCAbogados.Size = new System.Drawing.Size(121, 51);
+            this.btnMostrarCAbogados.TabIndex = 19;
+            this.btnMostrarCAbogados.Text = "MOSTRAR";
+            this.btnMostrarCAbogados.UseVisualStyleBackColor = false;
+            this.btnMostrarCAbogados.Click += new System.EventHandler(this.btnMostrarCAbogados_Click);
+            // 
+            // pnBottomCAbogados
+            // 
+            this.pnBottomCAbogados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnBottomCAbogados.Location = new System.Drawing.Point(8, 301);
+            this.pnBottomCAbogados.Name = "pnBottomCAbogados";
+            this.pnBottomCAbogados.Size = new System.Drawing.Size(776, 106);
+            this.pnBottomCAbogados.TabIndex = 17;
+            // 
+            // pnDerCAbogados
+            // 
+            this.pnDerCAbogados.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnDerCAbogados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnDerCAbogados.Location = new System.Drawing.Point(481, 130);
+            this.pnDerCAbogados.Name = "pnDerCAbogados";
+            this.pnDerCAbogados.Size = new System.Drawing.Size(303, 165);
+            this.pnDerCAbogados.TabIndex = 18;
+            // 
+            // pnIzqCAbogados
+            // 
+            this.pnIzqCAbogados.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pnIzqCAbogados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnIzqCAbogados.Location = new System.Drawing.Point(8, 130);
+            this.pnIzqCAbogados.Name = "pnIzqCAbogados";
+            this.pnIzqCAbogados.Size = new System.Drawing.Size(310, 165);
+            this.pnIzqCAbogados.TabIndex = 17;
+            // 
+            // pnTopCAbogados
+            // 
+            this.pnTopCAbogados.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnTopCAbogados.Controls.Add(this.lblTituloCAbogados);
+            this.pnTopCAbogados.Location = new System.Drawing.Point(8, 3);
+            this.pnTopCAbogados.Name = "pnTopCAbogados";
+            this.pnTopCAbogados.Size = new System.Drawing.Size(776, 121);
+            this.pnTopCAbogados.TabIndex = 16;
+            // 
+            // lblTituloCAbogados
+            // 
+            this.lblTituloCAbogados.AutoSize = true;
+            this.lblTituloCAbogados.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.lblTituloCAbogados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloCAbogados.ForeColor = System.Drawing.Color.Transparent;
+            this.lblTituloCAbogados.Location = new System.Drawing.Point(229, 53);
+            this.lblTituloCAbogados.Name = "lblTituloCAbogados";
+            this.lblTituloCAbogados.Size = new System.Drawing.Size(349, 20);
+            this.lblTituloCAbogados.TabIndex = 12;
+            this.lblTituloCAbogados.Text = "CANTIDAD DE ABOGADOS PENALISTAS";
             // 
             // Form1
             // 
@@ -931,14 +942,14 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnTituloRTrabajo.PerformLayout();
             this.tpCTrabajo.ResumeLayout(false);
             this.tpCTrabajo.PerformLayout();
-            this.tpCAbogados.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosAbogado)).EndInit();
             this.pnTopBAbogado.ResumeLayout(false);
             this.pnTopBAbogado.PerformLayout();
-            this.pnTopCAbogados.ResumeLayout(false);
-            this.pnTopCAbogados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatosAbogado)).EndInit();
+            this.tpCAbogados.ResumeLayout(false);
             this.pnResultadoCAbogados.ResumeLayout(false);
             this.pnResultadoCAbogados.PerformLayout();
+            this.pnTopCAbogados.ResumeLayout(false);
+            this.pnTopCAbogados.PerformLayout();
             this.ResumeLayout(false);
 
         }
