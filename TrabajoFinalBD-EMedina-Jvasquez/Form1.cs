@@ -16,5 +16,15 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
         {
             InitializeComponent();
         }
+
+        private void btnRConsorcio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRAbogado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
