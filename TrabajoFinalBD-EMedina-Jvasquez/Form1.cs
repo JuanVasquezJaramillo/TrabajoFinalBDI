@@ -26,5 +26,20 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
         {
 
         }
+
+        private void btnRTrabajo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarAbogado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMostrarCAbogados_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
