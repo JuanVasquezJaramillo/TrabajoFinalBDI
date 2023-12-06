@@ -158,6 +158,16 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
 
                 if (ds.Tables[0].Rows.Count > 0 && ds2.Tables[0].Rows.Count > 0)
                 {
+                    //----------------------FECHA FINAL--------------------
+                    string diaFF, mesFF, aNoFF;
+                    //----------------------FECHA FINAL--------------------
+                    if (rbFfDRTrabajo.Checked)
+                    {
+                        diaFF = dtpFfRTrabajo.Value.Date.ToString("dd");
+                        mesFF = dtpFfRTrabajo.Value.Date.ToString("MM");
+                        aNoFF = dtpFfRTrabajo.Value.Date.ToString("yyyy");
+                        fechaFinal = $"{diaFF}/{mesFF}/{aNoFF}";
+                    }
 
                     //----------------------FECHA INICIO--------------------
                     string diaFI = dtpFiRTrabajo.Value.Date.ToString("dd");
@@ -165,21 +175,15 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
                     string aNoFI = dtpFiRTrabajo.Value.Date.ToString("yyyy");
                     string fechaInicio = $"{diaFI}/{mesFI}/{aNoFI}";
                     //----------------------FECHA INICIO--------------------
-                    //------------------------------------------------------
-                    //----------------------FECHA FINAL--------------------
-                    string diaFF = dtpFfRTrabajo.Value.Date.ToString("dd");
-                    string mesFF = dtpFfRTrabajo.Value.Date.ToString("MM");
-                    string aNoFF = dtpFfRTrabajo.Value.Date.ToString("yyyy");
-                    fechaFinal = $"{diaFF}/{mesFF}/{aNoFF}";
-                    //----------------------FECHA FINAL--------------------
-
+                    
+                    
                     if (objTrabajo.registrarTrabajo(nit, nId, fechaInicio, fechaFinal) > 0)
                     {
                         MessageBox.Show("Trabajo registrado con éxito", "REGISTRAR TRABAJO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtNitRTrabajo.Text = "";
                         txtIdRTrabajo.Text = "";
-                        dtpFfRTrabajo.Value = DateTime.Today;
-                        dtpFiRTrabajo.Value = DateTime.Today;
+                        rbFfDRTrabajo.Checked = false;
+                        rbFfIRTrabajo.Checked = false;
                     }
                 }
                 else
@@ -260,7 +264,6 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             } else
             {
                 dtpFfRTrabajo.Visible = false;
-                dtpFfRTrabajo.Value = DateTime.Today;
             }
         }
     }

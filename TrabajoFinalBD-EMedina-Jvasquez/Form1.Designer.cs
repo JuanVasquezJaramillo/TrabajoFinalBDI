@@ -39,6 +39,7 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnTituloRConsorcio = new System.Windows.Forms.Panel();
             this.lblTituloRConsorcio = new System.Windows.Forms.Label();
             this.pnFormRConsorcio = new System.Windows.Forms.Panel();
+            this.txtAnioFRAbogado = new System.Windows.Forms.TextBox();
             this.txtNombreRConsorcio = new System.Windows.Forms.TextBox();
             this.txtNitRConsorcio = new System.Windows.Forms.TextBox();
             this.lblSubTituloRConsorcio = new System.Windows.Forms.Label();
@@ -102,7 +103,6 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnIzqCAbogados = new System.Windows.Forms.Panel();
             this.pnTopCAbogados = new System.Windows.Forms.Panel();
             this.lblTituloCAbogados = new System.Windows.Forms.Label();
-            this.txtAnioFRAbogado = new System.Windows.Forms.TextBox();
             this.tbcUI.SuspendLayout();
             this.tpRConsorcio.SuspendLayout();
             this.pnBtnRConsorcio.SuspendLayout();
@@ -229,6 +229,13 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnFormRConsorcio.Name = "pnFormRConsorcio";
             this.pnFormRConsorcio.Size = new System.Drawing.Size(534, 278);
             this.pnFormRConsorcio.TabIndex = 13;
+            // 
+            // txtAnioFRAbogado
+            // 
+            this.txtAnioFRAbogado.Location = new System.Drawing.Point(249, 64);
+            this.txtAnioFRAbogado.Name = "txtAnioFRAbogado";
+            this.txtAnioFRAbogado.Size = new System.Drawing.Size(200, 20);
+            this.txtAnioFRAbogado.TabIndex = 18;
             // 
             // txtNombreRConsorcio
             // 
@@ -836,9 +843,9 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.lblCantidadAbogados.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.lblCantidadAbogados.Location = new System.Drawing.Point(46, 24);
             this.lblCantidadAbogados.Name = "lblCantidadAbogados";
-            this.lblCantidadAbogados.Size = new System.Drawing.Size(25, 28);
+            this.lblCantidadAbogados.Size = new System.Drawing.Size(22, 28);
             this.lblCantidadAbogados.TabIndex = 0;
-            this.lblCantidadAbogados.Text = "a";
+            this.lblCantidadAbogados.Text = "-";
             // 
             // btnMostrarCAbogados
             // 
@@ -899,13 +906,6 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.lblTituloCAbogados.Size = new System.Drawing.Size(349, 20);
             this.lblTituloCAbogados.TabIndex = 12;
             this.lblTituloCAbogados.Text = "CANTIDAD DE ABOGADOS PENALISTAS";
-            // 
-            // txtAnioFRAbogado
-            // 
-            this.txtAnioFRAbogado.Location = new System.Drawing.Point(249, 64);
-            this.txtAnioFRAbogado.Name = "txtAnioFRAbogado";
-            this.txtAnioFRAbogado.Size = new System.Drawing.Size(200, 20);
-            this.txtAnioFRAbogado.TabIndex = 18;
             // 
             // Form1
             // 
