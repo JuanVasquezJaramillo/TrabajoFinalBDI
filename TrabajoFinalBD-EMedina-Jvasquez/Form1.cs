@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoFinalBD_EMedina_Jvasquez.logica;
+using System.Data;
 
 
 namespace TrabajoFinalBD_EMedina_Jvasquez
@@ -20,17 +21,15 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
         }
         Consorcio objConsorcio = new Consorcio();
         Abogado objAbogado = new Abogado();
+        Trabajo objTrabajo = new Trabajo();
         private void btnRConsorcio_Click(object sender, EventArgs e)
         {
             int i = 0;
+            int aux = 0;
             if(txtNombreRConsorcio.Text.Length <=0)
             {
                 MessageBox.Show("Ingresa un nombre", "NOMBRE", MessageBoxButtons.OK);
 
-            }
-            if(dtpAnioFundacionRConsorcio.Value.Date == DateTime.Today)
-            {
-                MessageBox.Show("Selecciona una fecha válida", "FECHA", MessageBoxButtons.OK);
             }
             if (!int.TryParse(txtNitRConsorcio.Text, out i))
             {
@@ -40,15 +39,34 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             {
                 MessageBox.Show("Ingresa un número de NIT válido (no se admite texto, sólo números enteros)", "NIT", MessageBoxButtons.OK);
             }
-            else if(int.TryParse(txtNitRConsorcio.Text, out i) && txtNitRConsorcio.Text.Length > 0 && txtNombreRConsorcio.Text.Length > 0 && dtpAnioFundacionRConsorcio.Value.Date != DateTime.Today)
+            if (!int.TryParse(txtAnioFRAbogado.Text, out i))
             {
-                int nit = int.Parse(txtNitRConsorcio.Text);
-                string nombre = txtNombreRConsorcio.Text;
-                string fecha = dtpAnioFundacionRConsorcio.Value.Date.ToString("D");
-                DateTime fecha2 = dtpAnioFundacionRConsorcio.Value;
-                Console.WriteLine(fecha2.ToString("d") + "FECHAAAAAAAAAAA-----");
-                objConsorcio.registrarConsorcio(nit, fecha, nombre);
-                MessageBox.Show("Consorcio registrado con éxito", "REGISTRAR CONSORCIO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingresa un número de año de fundación válido (no se admite texto, sólo números enteros mayores que 1700 y menor o igual que el año actual)", "AÑO DE FUNDACIÓN", MessageBoxButtons.OK);
+            }
+            if (txtNitRConsorcio.Text.Length <= 0)
+            {
+                MessageBox.Show("Ingresa un año", "AÑO DE FUNDACIÓN", MessageBoxButtons.OK);
+            }
+            else if(int.TryParse(txtNitRConsorcio.Text, out i) && txtNitRConsorcio.Text.Length > 0 && txtNombreRConsorcio.Text.Length > 0 && txtAnioFRAbogado.Text.Length > 0)
+            {
+                aux = int.Parse(txtAnioFRAbogado.Text);
+                if (aux < 1700 || aux > 2023)
+                {
+                    MessageBox.Show("Ingresa un número de año de fundación válido (solo años mayores que 1700 y menores o iguales que el año actual)", "AÑO DE FUNDACIÓN", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    int nit = int.Parse(txtNitRConsorcio.Text);
+                    string nombre = txtNombreRConsorcio.Text;
+                    int fecha = int.Parse(txtAnioFRAbogado.Text);
+                    if (objConsorcio.registrarConsorcio(nit, fecha, nombre) > 0)
+                    {
+                        MessageBox.Show("Consorcio registrado con éxito", "REGISTRAR CONSORCIO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtNitRConsorcio.Text = "";
+                        txtNombreRConsorcio.Text = "";
+                        txtAnioFRAbogado.Text = "";
+                    }
+                }
             }
         }
 
@@ -108,22 +126,142 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
         
         private void btnRTrabajo_Click(object sender, EventArgs e)
         {
+            string fechaFinal = "";
+            if (noEsNum(txtNitRTrabajo.Text))
+            {
+                MessageBox.Show("Ingresa un NIT válido", "NIT", MessageBoxButtons.OK);
+            }
+            if (noEsNum(txtIdRTrabajo.Text))
+            {
+                MessageBox.Show("Ingresa un número de identificación válido", "NÚMERO DE IDENTIFICACIÓN", MessageBoxButtons.OK);
+            }
+            if (!anioValido(dtpFiRTrabajo.Value.Date.ToString("yyyy")))
+            {
+                MessageBox.Show("Selecciona una fecha de inicio válida. (dónde el año sea mayor que 1990 y menor o igual que 2024)", "FECHA DE INCIO", MessageBoxButtons.OK);
+            }
+            if (!rbFfDRTrabajo.Checked && !rbFfIRTrabajo.Checked)
+            {
+                MessageBox.Show("Debes seleccionar si la fecha de finalización está definida o no", "FECHA DE FINALIZACIÓN", MessageBoxButtons.OK);
+            }
+            if (!anioValido(dtpFfRTrabajo.Value.Date.ToString("yyyy"))) 
+            {
+                MessageBox.Show("Selecciona una fecha de finalización válida", "FECHA DE FINALIZACIÓN", MessageBoxButtons.OK);
+            }
+            else if (!noEsNum(txtIdRTrabajo.Text) && !noEsNum(txtNitRTrabajo.Text) && anioValido(dtpFiRTrabajo.Value.Date.ToString("yyyy")) && (rbFfIRTrabajo.Checked || rbFfDRTrabajo.Checked))
+            {
+                DataSet ds = new DataSet();
+                DataSet ds2 = new DataSet();
+                int nit = int.Parse(txtNitRTrabajo.Text);
+                int nId = int.Parse(txtIdRTrabajo.Text);
+                ds = objTrabajo.consultarConsorcio(nit);
+                ds2 = objTrabajo.consultarAbogado(nId);
 
+                if (ds.Tables[0].Rows.Count > 0 && ds2.Tables[0].Rows.Count > 0)
+                {
+
+                    //----------------------FECHA INICIO--------------------
+                    string diaFI = dtpFiRTrabajo.Value.Date.ToString("dd");
+                    string mesFI = dtpFiRTrabajo.Value.Date.ToString("MM");
+                    string aNoFI = dtpFiRTrabajo.Value.Date.ToString("yyyy");
+                    string fechaInicio = $"{diaFI}/{mesFI}/{aNoFI}";
+                    //----------------------FECHA INICIO--------------------
+                    //------------------------------------------------------
+                    //----------------------FECHA FINAL--------------------
+                    string diaFF = dtpFfRTrabajo.Value.Date.ToString("dd");
+                    string mesFF = dtpFfRTrabajo.Value.Date.ToString("MM");
+                    string aNoFF = dtpFfRTrabajo.Value.Date.ToString("yyyy");
+                    fechaFinal = $"{diaFF}/{mesFF}/{aNoFF}";
+                    //----------------------FECHA FINAL--------------------
+
+                    if (objTrabajo.registrarTrabajo(nit, nId, fechaInicio, fechaFinal) > 0)
+                    {
+                        MessageBox.Show("Trabajo registrado con éxito", "REGISTRAR TRABAJO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtNitRTrabajo.Text = "";
+                        txtIdRTrabajo.Text = "";
+                        dtpFfRTrabajo.Value = DateTime.Today;
+                        dtpFiRTrabajo.Value = DateTime.Today;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el NIT ni número de identificación en la base de datos existente. Intenta de nuevo", "REGISTRAR TRABAJO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
-
+        private bool noEsNum(string texto)
+        {
+            int i = 0;
+            if(texto.Length >= 0)
+            {
+                if (!int.TryParse(texto, out i))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool anioValido(string anio)
+        {
+            int aux = 0;
+            if (anio.Length > 0)
+            {
+                aux = int.Parse(anio);
+                if(aux >= 1990 && aux <= 2030)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void btnBuscarAbogado_Click(object sender, EventArgs e)
         {
+            DataSet miDs = new DataSet();
+            string anio, mes, dia;
+            anio = dtpFIBuscarAbogado.Value.Year.ToString();
+            mes = dtpFIBuscarAbogado.Value.Month.ToString();
+            dia = dtpFIBuscarAbogado.Value.Day.ToString();
+            miDs = objAbogado.consultarAbogXFechaInicio(anio, mes, dia);
 
+
+            if (miDs.Tables[0].Rows.Count > 0)
+            {
+                dgvDatosAbogado.DataSource = miDs;
+                dgvDatosAbogado.DataMember = "ResultadoDatos";
+                lblNoHayResultados.Visible = false;
+            }
+            else
+            {
+                dgvDatosAbogado.DataMember = "";
+                lblNoHayResultados.Visible = true;
+                MessageBox.Show("Persona no encontrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnMostrarCAbogados_Click(object sender, EventArgs e)
         {
-
+            DataSet miDs = new DataSet();
+            miDs = objAbogado.consultaCantAbogPenalistas();
+            if (miDs.Tables[0].Rows.Count > 0)
+            {
+                lblCantidadAbogados.Text = miDs.Tables[0].Rows[0][0].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Persona no encontrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
-        private void rbPenalistaRAbogado_CheckedChanged(object sender, EventArgs e)
+        private void rbFfDRTrabajo_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (rbFfDRTrabajo.Checked)
+            {
+                dtpFfRTrabajo.Visible = true;
+                dtpFfRTrabajo.Enabled = true;
+            } else
+            {
+                dtpFfRTrabajo.Visible = false;
+                dtpFfRTrabajo.Value = DateTime.Today;
+            }
         }
     }
 }

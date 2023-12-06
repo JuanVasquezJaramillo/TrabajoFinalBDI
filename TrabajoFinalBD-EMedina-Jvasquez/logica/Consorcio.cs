@@ -11,11 +11,10 @@ namespace TrabajoFinalBD_EMedina_Jvasquez.logica
     class Consorcio
     {
         Datos objDatos = new Datos();
-       public int registrarConsorcio(int nit, string fecha, string nombre)
+       public int registrarConsorcio(int nit, int fecha, string nombre)
         {
             string consulta = "insert into Consorcio(consNit, consAnioFundacion, consNombre) values ("
-                + nit
-                + $", TO_DATE('{fecha}', 'DD/MM/YYYY'), '{nombre}')";
+                + $"{nit}, {fecha}, '{nombre}')";
             return objDatos.ejecutarDML(consulta);
         }
     }

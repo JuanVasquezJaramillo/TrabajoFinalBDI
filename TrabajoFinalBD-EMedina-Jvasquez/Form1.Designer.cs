@@ -41,7 +41,6 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnFormRConsorcio = new System.Windows.Forms.Panel();
             this.txtNombreRConsorcio = new System.Windows.Forms.TextBox();
             this.txtNitRConsorcio = new System.Windows.Forms.TextBox();
-            this.dtpAnioFundacionRConsorcio = new System.Windows.Forms.DateTimePicker();
             this.lblSubTituloRConsorcio = new System.Windows.Forms.Label();
             this.lblNitRConsorcio = new System.Windows.Forms.Label();
             this.lblNombreRConsorcio = new System.Windows.Forms.Label();
@@ -103,6 +102,7 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.pnIzqCAbogados = new System.Windows.Forms.Panel();
             this.pnTopCAbogados = new System.Windows.Forms.Panel();
             this.lblTituloCAbogados = new System.Windows.Forms.Label();
+            this.txtAnioFRAbogado = new System.Windows.Forms.TextBox();
             this.tbcUI.SuspendLayout();
             this.tpRConsorcio.SuspendLayout();
             this.pnBtnRConsorcio.SuspendLayout();
@@ -218,9 +218,9 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             // 
             this.pnFormRConsorcio.BackColor = System.Drawing.Color.LightSeaGreen;
             this.pnFormRConsorcio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnFormRConsorcio.Controls.Add(this.txtAnioFRAbogado);
             this.pnFormRConsorcio.Controls.Add(this.txtNombreRConsorcio);
             this.pnFormRConsorcio.Controls.Add(this.txtNitRConsorcio);
-            this.pnFormRConsorcio.Controls.Add(this.dtpAnioFundacionRConsorcio);
             this.pnFormRConsorcio.Controls.Add(this.lblSubTituloRConsorcio);
             this.pnFormRConsorcio.Controls.Add(this.lblNitRConsorcio);
             this.pnFormRConsorcio.Controls.Add(this.lblNombreRConsorcio);
@@ -243,13 +243,6 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.txtNitRConsorcio.Name = "txtNitRConsorcio";
             this.txtNitRConsorcio.Size = new System.Drawing.Size(200, 20);
             this.txtNitRConsorcio.TabIndex = 16;
-            // 
-            // dtpAnioFundacionRConsorcio
-            // 
-            this.dtpAnioFundacionRConsorcio.Location = new System.Drawing.Point(249, 67);
-            this.dtpAnioFundacionRConsorcio.Name = "dtpAnioFundacionRConsorcio";
-            this.dtpAnioFundacionRConsorcio.Size = new System.Drawing.Size(200, 20);
-            this.dtpAnioFundacionRConsorcio.TabIndex = 15;
             // 
             // lblSubTituloRConsorcio
             // 
@@ -384,7 +377,6 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.rbPenalistaRAbogado.TabStop = true;
             this.rbPenalistaRAbogado.Text = "Penalista";
             this.rbPenalistaRAbogado.UseVisualStyleBackColor = true;
-            this.rbPenalistaRAbogado.CheckedChanged += new System.EventHandler(this.rbPenalistaRAbogado_CheckedChanged);
             // 
             // txtNombreRAbogado
             // 
@@ -533,6 +525,7 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.rbFfDRTrabajo.TabStop = true;
             this.rbFfDRTrabajo.Text = "fecha de finalización definida";
             this.rbFfDRTrabajo.UseVisualStyleBackColor = true;
+            this.rbFfDRTrabajo.CheckedChanged += new System.EventHandler(this.rbFfDRTrabajo_CheckedChanged);
             // 
             // dtpFfRTrabajo
             // 
@@ -907,6 +900,13 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             this.lblTituloCAbogados.TabIndex = 12;
             this.lblTituloCAbogados.Text = "CANTIDAD DE ABOGADOS PENALISTAS";
             // 
+            // txtAnioFRAbogado
+            // 
+            this.txtAnioFRAbogado.Location = new System.Drawing.Point(249, 64);
+            this.txtAnioFRAbogado.Name = "txtAnioFRAbogado";
+            this.txtAnioFRAbogado.Size = new System.Drawing.Size(200, 20);
+            this.txtAnioFRAbogado.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -975,7 +975,6 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
         private System.Windows.Forms.Panel pnDerRConsorcio;
         private System.Windows.Forms.TextBox txtNombreRConsorcio;
         private System.Windows.Forms.TextBox txtNitRConsorcio;
-        private System.Windows.Forms.DateTimePicker dtpAnioFundacionRConsorcio;
         private System.Windows.Forms.Panel pnFormRAbogado;
         private System.Windows.Forms.Label lblCasosRAbogado;
         private System.Windows.Forms.Label lblTipoRAbogado;
@@ -1029,6 +1028,7 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
         private System.Windows.Forms.Panel pnTopCAbogados;
         private System.Windows.Forms.Label lblTituloCAbogados;
         private System.Windows.Forms.Label lblCantidadAbogados;
+        private System.Windows.Forms.TextBox txtAnioFRAbogado;
     }
 }
 
