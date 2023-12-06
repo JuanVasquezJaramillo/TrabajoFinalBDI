@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrabajoFinalBD_EMedina_Jvasquez.logica;
-using System.Data;
 
 
 namespace TrabajoFinalBD_EMedina_Jvasquez
@@ -33,17 +32,17 @@ namespace TrabajoFinalBD_EMedina_Jvasquez
             }
             if (!int.TryParse(txtNitRConsorcio.Text, out i))
             {
-                MessageBox.Show("Ingresa un número de NIT", "NIT", MessageBoxButtons.OK);
+                MessageBox.Show("Ingresa un número de NIT válido (no se admite texto, sólo números enteros)", "NIT", MessageBoxButtons.OK);
             }
             if (txtNitRConsorcio.Text.Length <= 0)
             {
-                MessageBox.Show("Ingresa un número de NIT válido (no se admite texto, sólo números enteros)", "NIT", MessageBoxButtons.OK);
+                MessageBox.Show("Ingresa un número de NIT", "NIT", MessageBoxButtons.OK);
             }
             if (!int.TryParse(txtAnioFRAbogado.Text, out i))
             {
                 MessageBox.Show("Ingresa un número de año de fundación válido (no se admite texto, sólo números enteros mayores que 1700 y menor o igual que el año actual)", "AÑO DE FUNDACIÓN", MessageBoxButtons.OK);
             }
-            if (txtNitRConsorcio.Text.Length <= 0)
+            if (txtAnioFRAbogado.Text.Length <= 0)
             {
                 MessageBox.Show("Ingresa un año", "AÑO DE FUNDACIÓN", MessageBoxButtons.OK);
             }
